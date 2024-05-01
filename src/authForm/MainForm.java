@@ -91,7 +91,7 @@ public class MainForm extends JLayeredPane {
                     Application.showForm(new FormDevoir());
                 } else if (subIndex == 2) {
                     Application.showForm(new AddStudentForm());
-                } else if (subIndex == 2) {
+                } else if (subIndex == 3) {
                     Application.showForm(new AddSupervisor());
                 } else {
                     action.cancel();

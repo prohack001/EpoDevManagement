@@ -8,6 +8,10 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 import application.Application;
+import javax.swing.JOptionPane;
+import authForm.login;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,8 +43,7 @@ public class LoginForm extends javax.swing.JPanel {
         txtUser.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "User Name");
         txtPass.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Password");
     }
-
-    @SuppressWarnings("unchecked")
+     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -52,7 +55,7 @@ public class LoginForm extends javax.swing.JPanel {
         lbPass = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
 
-        cmdLogin.setText("Login");
+        cmdLogin.setText("Se Connecter");
         cmdLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdLoginActionPerformed(evt);
@@ -60,11 +63,11 @@ public class LoginForm extends javax.swing.JPanel {
         });
 
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Login");
+        lbTitle.setText("CONNEXION");
 
-        lbUser.setText("User Name");
+        lbUser.setText("E-mail");
 
-        lbPass.setText("Password");
+        lbPass.setText("Mot de passe");
 
         javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login);
         login.setLayout(loginLayout);
@@ -109,9 +112,9 @@ public class LoginForm extends javax.swing.JPanel {
                 .addComponent(lbPass)
                 .addGap(5, 5, 5)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(40, 40, 40)
                 .addComponent(cmdLogin)
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -133,8 +136,25 @@ public class LoginForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLoginActionPerformed
-        Application.login();
-    }//GEN-LAST:event_cmdLoginActionPerformed
+        try {
+            String email = txtUser.getText();
+            String password = new String(txtPass.getPassword());
+            
+            // Vérifier les identifiants dans la base de données
+            boolean authenticated = authForm.login.checkCredentialsInDatabase(email, password);
+            
+            if (authenticated) {
+                // Si les identifiants sont valides, connectez-vous au tableau de bord
+                Application.login();
+            } else {
+                // Sinon, afficher un message d'erreur
+                JOptionPane.showMessageDialog(this, "Identifiants incorrects. Veuillez réessayer.", "Erreur de connexion", JOptionPane.ERROR_MESSAGE);
+                
+            }   } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+}    
 
     private class LoginFormLayout implements LayoutManager {
 
@@ -242,7 +262,11 @@ public class LoginForm extends javax.swing.JPanel {
                 cmdLogin.setBounds(x, y, width, cmdLogin.getPreferredSize().height);
             }
         }
-    }
+        
+        
+    }//GEN-LAST:event_cmdLoginActionPerformed
+
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdLogin;
