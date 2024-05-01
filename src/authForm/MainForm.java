@@ -1,9 +1,11 @@
 package authForm;
 
 
+import Forms.AddStudentForm;
+import Forms.AddSupervisor;
 import Forms.FormDashboard;
 import Forms.FormDevoir;
-import Forms.FormInbox;
+import Forms.PlanifierDevoirForm;
 import Forms.FormRead;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
@@ -76,9 +78,9 @@ public class MainForm extends JLayeredPane {
                 Application.showForm(new FormDashboard());
             } else if (index == 1) {
                 if (subIndex == 1) {
-                    Application.showForm(new FormInbox());
+                    Application.showForm(new PlanifierDevoirForm());
                 } else if (subIndex == 2) {
-                    Application.showForm(new FormRead());
+                    Application.showForm(new FormDevoir());
                 } else {
                     action.cancel();
                 }
@@ -88,7 +90,9 @@ public class MainForm extends JLayeredPane {
                 if (subIndex == 1) {
                     Application.showForm(new FormDevoir());
                 } else if (subIndex == 2) {
-                    Application.showForm(new FormRead());
+                    Application.showForm(new AddStudentForm());
+                } else if (subIndex == 2) {
+                    Application.showForm(new AddSupervisor());
                 } else {
                     action.cancel();
                 }
