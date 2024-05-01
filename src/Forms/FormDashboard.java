@@ -16,7 +16,7 @@ public class FormDashboard extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         lb = new javax.swing.JLabel();
@@ -66,18 +66,18 @@ public class FormDashboard extends javax.swing.JPanel {
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(230, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "Hello sample message");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.TOP_CENTER, "2 sample message");
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lb;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration    
 }

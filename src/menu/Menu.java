@@ -26,18 +26,16 @@ public class Menu extends JPanel {
 
     private final String menuItems[][] = {
         {"~MAIN~"},
-        {"Dashboard"},
-        {"~Devoir~"},
-        {"Email", "Inbox", "Read", "Compost"},
-        {"Chat"},
-        {"Calendar"},
-        {"~COMPONENT~"},
-        {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-        {"Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard"},
-        {"~OTHER~"},
-        {"Charts", "Apex", "Flot", "Peity", "Sparkline"},
-        {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-        {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
+        {"Acceuil"},
+        {"~Actions~"},
+        {"Devoir","Planifier", "Liste des devoirs", },
+        {"~Gestion~"},
+        {"Gérer","Ajouter un enseignant", "Ajouter un etudiant", "Ajouter un surveillant"},
+        //{"Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard"},
+        //{"~OTHER~"},
+        //{"Charts", "Apex", "Flot", "Peity", "Sparkline"},
+        //{"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
+        //{"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
         {"Logout"}
     };
 

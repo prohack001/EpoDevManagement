@@ -1,6 +1,8 @@
 package authForm;
 
+
 import Forms.FormDashboard;
+import Forms.FormDevoir;
 import Forms.FormInbox;
 import Forms.FormRead;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -80,9 +82,18 @@ public class MainForm extends JLayeredPane {
                 } else {
                     action.cancel();
                 }
-            } else if (index == 9) {
+            } else if (index == 3) {
                 Application.logout();
-            } else {
+            } else if (index == 2) {
+                if (subIndex == 1) {
+                    Application.showForm(new FormDevoir());
+                } else if (subIndex == 2) {
+                    Application.showForm(new FormRead());
+                } else {
+                    action.cancel();
+                }
+                
+            }else {
                 action.cancel();
             }
         });
