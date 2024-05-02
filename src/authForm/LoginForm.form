@@ -90,9 +90,9 @@
                   <Component id="lbPass" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="txtPass" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="cmdLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,7 +100,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="cmdLogin">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Login"/>
+            <Property name="text" type="java.lang.String" value="Se Connecter"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdLoginActionPerformed"/>
@@ -109,19 +109,19 @@
         <Component class="javax.swing.JLabel" name="lbTitle">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Login"/>
+            <Property name="text" type="java.lang.String" value="CONNEXION"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbUser">
           <Properties>
-            <Property name="text" type="java.lang.String" value="User Name"/>
+            <Property name="text" type="java.lang.String" value="E-mail"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtUser">
         </Component>
         <Component class="javax.swing.JLabel" name="lbPass">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Password"/>
+            <Property name="text" type="java.lang.String" value="Mot de passe"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtPass">
