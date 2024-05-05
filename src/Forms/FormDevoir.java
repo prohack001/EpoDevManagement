@@ -4,17 +4,25 @@
  */
 package Forms;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author laura
  */
 public class FormDevoir extends javax.swing.JPanel {
-
+    CConnection conn = new CConnection();
     /**
      * Creates new form FormDevoir
      */
     public FormDevoir() {
         initComponents();
+        loadDevoirsData();
     }
 
     /**
@@ -36,13 +44,13 @@ public class FormDevoir extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Duree", "Libelle", "Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -88,7 +96,33 @@ public class FormDevoir extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void loadDevoirsData(){
+      
+        try {
+                    String query  = "SELECT * FROM devoirs";
+                    PreparedStatement pstmt = conn.maConnexion().prepareStatement(query);
 
+                    // Exécuter la requête et obtenir les résultats
+                    
+                    ResultSet resultSet = pstmt.executeQuery();
+
+                    // Créer un modèle de table par défaut pour stocker les données des devoirs
+                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+                    // Effacer le contenu existant de la table
+                    model.setRowCount(0);
+
+                    // Parcourir les résultats de la requête et ajouter chaque devoir à la table
+                    while (resultSet.next()) {
+                        Object[] row = {resultSet.getInt("duree"), resultSet.getString("libelle"), resultSet.getDate("dateCompo")};
+                        model.addRow(row);
+                    }
+        
+            }   catch (SQLException ex) {
+                Logger.getLogger(FormDevoir.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

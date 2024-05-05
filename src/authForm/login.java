@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class login {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/gst_dev?useSSL=false&serverTimezone=UTC";
+    private static final String DB_URL = "jdbc:mysql://localhost/gestion_devoir_epo";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
 
@@ -32,7 +32,7 @@ public class login {
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
             // Préparer la requête SQL
-            String query = "SELECT * FROM utilisateur WHERE email = ? AND passe = ?";
+            String query = "SELECT * FROM utilisateurs WHERE email = ? AND passe = ?";
             stmt = conn.prepareStatement(query);
             stmt.setString(1, email);
             stmt.setString(2, password);
